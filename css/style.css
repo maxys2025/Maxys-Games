@@ -474,6 +474,7 @@ ol {
 .feature-item {
 	height: 415px;
 	position: relative;
+	margin-right: 10px;
 }
 
 .feature-item:after {
