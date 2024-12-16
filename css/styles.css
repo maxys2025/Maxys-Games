@@ -103,3 +103,12 @@ img {
   min-height: 200vh;
   object-fit: cover;
 }
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo-img {
+    height: 40px; /* Adatta l'altezza secondo necessità */
+    width: auto; /* Mantiene il rapporto proporzionale dell'immagine */
+}
