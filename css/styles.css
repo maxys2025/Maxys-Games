@@ -25,7 +25,6 @@ body {
     z-index: 1000;
     box-sizing: border-box;
     overflow: hidden; /* Evita che gli elementi si sovrappongano */
-    border: 1px solid red; /* Debug temporaneo */
 }
 
 .menu .logo {
@@ -37,7 +36,6 @@ body {
     max-width: 150px; /* Larghezza massima del logo */
     object-fit: contain; /* Mantiene il rapporto proporzionale */
     display: block; /* Evita spazi bianchi */
-    border: 1px solid green; /* Debug temporaneo */
 }
 
 .navigation {
@@ -46,7 +44,6 @@ body {
     align-items: center;
     gap: 15px;
     flex-wrap: nowrap; /* Evita che i link vadano su nuove righe */
-    border: 1px solid blue; /* Debug temporaneo */
 }
 
 .navigation a {
