@@ -1,0 +1,30 @@
+{
+  "domande": {
+    "Preferenze": [
+      { "question": "Qual è il tuo colore preferito?", "category": "Preferenze" },
+      { "question": "Qual è il tuo piatto preferito?", "category": "Preferenze" }
+    ],
+    "Esperienze": [
+      { "question": "Qual è il viaggio più memorabile che hai fatto?", "category": "Esperienze" },
+      { "question": "Hai mai fatto qualcosa di estremo?", "category": "Esperienze" }
+    ]
+  },
+  "coppie": {
+    "Conoscenza": [
+      { "question": "Qual è la sua bevanda preferita?", "category": "Conoscenza" },
+      { "question": "Qual è il suo film preferito?", "category": "Conoscenza" }
+    ]
+  },
+  "segreti": {
+    "Piccanti": [
+      { "question": "Qual è il tuo sogno più piccante?", "category": "Piccanti" },
+      { "question": "Hai mai fatto qualcosa di imbarazzante?", "category": "Piccanti" }
+    ]
+  },
+  "spaccacoppie": {
+    "Provocazioni": [
+      { "question": "Chi è più testardo tra voi due?", "category": "Provocazioni" },
+      { "question": "Cosa cambieresti del tuo partner?", "category": "Provocazioni" }
+    ]
+  }
+}
