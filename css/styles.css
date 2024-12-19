@@ -1,135 +1,60 @@
-/* Stile generale per il sito in modalità dark */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #1e1e1e;
-    color: #f0f0f0;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: #f4f4f9;
 }
 
-/* Stile del menu */
-.menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 20px 20px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  transition: 0.3s ease-out;
-  backdrop-filter: blur(8px) brightness(1.2);
-  -webkit-backdrop-filter: blur(8px) brightness(1.2);
-  text-shadow: 0 0 5px rgba(0,0,0,0.5);
+header {
+  padding: 20px;
+  background-color: #333;
   color: white;
-  font-size: 16px;
-    z-index: 1000;
-    box-sizing: border-box;
-    overflow: hidden; /* Evita che gli elementi si sovrappongano */
-}
-
-.menu .logo {
-    flex-shrink: 0;
-}
-
-.logo img {
-    max-height: 50px; /* Altezza massima del logo */
-    max-width: 150px; /* Larghezza massima del logo */
-    object-fit: contain; /* Mantiene il rapporto proporzionale */
-    display: block; /* Evita spazi bianchi */
-}
-
-.navigation {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: nowrap; /* Evita che i link vadano su nuove righe */
-}
-
-.navigation a {
-    color: #ffd700;
-    text-decoration: none;
-    font-size: 1em;
-    transition: color 0.3s ease;
-}
-
-.navigation a:hover {
-    color: #ffffff;
-}
-
-a {
-  background-image: linear-gradient(
-    to right,
-    #aa321a,
-    #aa321a 50%,
-    #ffb921 50%
-  );
-  background-size: 200% 100%;
-  background-position: -100%;
-  display: inline-block;
-  padding: 5px 0;
-  position: relative;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: all 0.3s ease-in-out;
-}
-
-a:before{
-  content: '';
-  background: #ffb921;
-  display: block;
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 3px;
-  transition: all 0.3s ease-in-out;
-}
-
-a:hover {
- background-position: 0;
-}
-
-a:hover::before{
-  width: 100%;
 }
 
 main {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
 }
 
-.card {
-    position: relative;
-    background: white;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 10px;
-    flex: 1 1 calc(33% - 20px);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    cursor: pointer;
+.game-selection {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
+button {
+  padding: 15px 30px;
+  font-size: 1.2em;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-/* Stile responsive */
-@media (max-width: 768px) {
-    .menu {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 15px;
-    }
+button:hover {
+  background-color: #0056b3;
+}
 
-    .navigation {
-        justify-content: center;
-        gap: 10px;
-        margin-top: 10px;
-        width: 100%;
-    }
+footer {
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
 
-    .navigation a {
-        font-size: 0.9em;
-    }
+@media (max-width: 600px) {
+  .game-selection {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+  }
 }
