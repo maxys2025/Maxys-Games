@@ -18,6 +18,14 @@
       <button onclick="startGame('segreti')">Segreti Piccanti</button>
       <button onclick="startGame('spaccacoppie')">Spacca Coppie</button>
     </div>
+    <div id="game-content" style="display: none;">
+      <div id="question-container">
+        <p id="category"></p>
+        <p id="question"></p>
+      </div>
+      <div id="question-counter">0/0</div>
+      <button onclick="nextQuestion()">Prossima Domanda</button>
+    </div>
   </main>
   <footer>
     <p>Creato con ❤️</p>
