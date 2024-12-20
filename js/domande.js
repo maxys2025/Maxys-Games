@@ -27,3 +27,25 @@ function restartGame() {
   selectedQuestions = []; // Reset delle domande selezionate
   initDomandeGame(); // Riavvia il gioco
 }
+
+function endGame() {
+  let categoriesCount = {};
+  
+  // Conta le domande per categoria
+  selectedQuestions.forEach(question => {
+    categoriesCount[question.category] = (categoriesCount[question.category] || 0) + 1;
+  });
+
+  let summaryHtml = '<h2>Gioco completato!</h2><p>Riepilogo:</p><ul>';
+  for (const [category, count] of Object.entries(categoriesCount)) {
+    summaryHtml += `<li>${category}: ${count} domande</li>`;
+  }
+  summaryHtml += '</ul>';
+
+  summaryHtml += `
+    <button onclick="restartGame()">Ricomincia</button>
+    <a href="index.html"><button>Torna alla Home</button></a>
+  `;
+
+  document.getElementById('game-content').innerHTML = summaryHtml;
+}
