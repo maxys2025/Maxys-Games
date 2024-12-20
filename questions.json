@@ -2,11 +2,24 @@
   "domande": {
     "Preferenze": [
       { "question": "Qual è il tuo colore preferito?", "category": "Preferenze" },
-      { "question": "Qual è il tuo piatto preferito?", "category": "Preferenze" }
+      { "question": "Qual è il tuo piatto preferito?", "category": "Preferenze" },
+      { "question": "Qual è il tuo genere musicale preferito?", "category": "Preferenze" },
+      { "question": "Qual è la tua stagione preferita?", "category": "Preferenze" },
+      { "question": "Qual è il tuo hobby preferito?", "category": "Preferenze" }
     ],
     "Esperienze": [
-      { "question": "Qual è il viaggio più memorabile che hai fatto?", "category": "Esperienze" },
-      { "question": "Hai mai fatto qualcosa di estremo?", "category": "Esperienze" }
+      { "question": "Qual è stato il viaggio più bello che hai fatto?", "category": "Esperienze" },
+      { "question": "Hai mai fatto qualcosa di estremo, come paracadutismo?", "category": "Esperienze" },
+      { "question": "Qual è il tuo ricordo d'infanzia più bello?", "category": "Esperienze" },
+      { "question": "Hai mai incontrato qualcuno di famoso?", "category": "Esperienze" },
+      { "question": "Qual è stata la tua vacanza più divertente?", "category": "Esperienze" }
+    ],
+    "Curiosità": [
+      { "question": "Se potessi avere un superpotere, quale sarebbe?", "category": "Curiosità" },
+      { "question": "Qual è l'animale che ti rappresenta di più?", "category": "Curiosità" },
+      { "question": "Se potessi vivere ovunque, dove sarebbe?", "category": "Curiosità" },
+      { "question": "Qual è il tuo sogno più strano?", "category": "Curiosità" },
+      { "question": "Se potessi cenare con una persona famosa, chi sarebbe?", "category": "Curiosità" }
     ]
   },
   "coppie": {
