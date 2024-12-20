@@ -112,3 +112,16 @@ footer a:hover {
   text-align: center;
 }
 
+#game-content ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+#game-content ul li {
+  background-color: #1F1F1F;
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 8px;
+  color: #FFB321;
+}
