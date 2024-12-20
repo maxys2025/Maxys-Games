@@ -3,7 +3,7 @@ const gameConfig = {
   randomQuestions: 25 // Numero totale di domande
 };
 
-// Inizializza il gioco
+// Avvio del gioco con la selezione delle categorie
 async function startGameWithCategories() {
   // Raccogli le categorie selezionate
   const form = document.getElementById('category-form');
@@ -25,7 +25,7 @@ async function startGameWithCategories() {
   const filteredQuestions = selectedCategories.flatMap(category => questions[category] || []);
   
   // Prepara il set di domande casuali
-  selectedQuestions = filteredQuestions.sort(() => Math.random() - 0.5).slice(0, 25);
+  selectedQuestions = filteredQuestions.sort(() => Math.random() - 0.5).slice(0, gameConfig.randomQuestions);
 
   // Avvia il gioco
   currentQuestionIndex = 0;
@@ -33,23 +33,7 @@ async function startGameWithCategories() {
   nextQuestion();
 }
 
-// Avvia il gioco quando la pagina è caricata
-window.addEventListener('DOMContentLoaded', initDomandeGame);
-
-function endGame() {
-  document.getElementById('game-content').innerHTML = `
-    <h2>Gioco completato!</h2>
-    <button onclick="restartGame()">Ricomincia</button>
-    <a href="index.html"><button>Torna alla Home</button></a>
-  `;
-}
-
-function restartGame() {
-  currentQuestionIndex = 0; // Reset dell'indice
-  selectedQuestions = []; // Reset delle domande selezionate
-  initDomandeGame(); // Riavvia il gioco
-}
-
+// Fine del gioco e riepilogo
 function endGame() {
   let categoriesCount = {};
   
@@ -71,3 +55,16 @@ function endGame() {
 
   document.getElementById('game-content').innerHTML = summaryHtml;
 }
+
+// Riavvia il gioco
+function restartGame() {
+  currentQuestionIndex = 0; // Reset dell'indice
+  selectedQuestions = []; // Reset delle domande selezionate
+  document.getElementById('game-content').style.display = 'none';
+  document.getElementById('category-selection').style.display = 'block';
+}
+
+// Nascondi il contenuto del gioco quando la pagina è caricata
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('game-content').style.display = 'none';
+});
