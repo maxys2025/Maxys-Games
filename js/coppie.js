@@ -13,7 +13,7 @@ async function startCouplesGame() {
   const nameHim = document.getElementById('name-him').value || "Lui";
   const nameHer = document.getElementById('name-her').value || "Lei";
 
-  // Personalizza i nomi visualizzati nel gioco (se necessario)
+  // Personalizza i nomi visualizzati nel gioco (opzionale)
   console.log(`Giocatori: ${nameHim} e ${nameHer}`);
 
   // Nascondi l'input dei nomi e mostra il contenuto del gioco
@@ -23,8 +23,8 @@ async function startCouplesGame() {
   // Carica le domande dalla categoria specificata
   await loadQuestions('coppie');
   selectedQuestions = (questions[couplesGameConfig.category] || [])
-    .sort(() => Math.random() - 0.5) // Mescola le domande
-    .slice(0, couplesGameConfig.totalQuestions); // Seleziona il numero desiderato di domande
+    .sort(() => Math.random() - 0.5)
+    .slice(0, couplesGameConfig.totalQuestions);
 
   // Mostra la prima domanda
   nextQuestion();
