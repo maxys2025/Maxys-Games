@@ -4,11 +4,33 @@ const gameConfig = {
 };
 
 // Inizializza il gioco
-async function initDomandeGame() {
-  await loadQuestions('domande'); // Carica le domande dalla categoria "domande"
-  prepareQuestions(gameConfig); // Prepara il set casuale di domande
-  updateQuestionCounter(); // Aggiorna il contatore
-  nextQuestion(); // Mostra la prima domanda
+async function startGameWithCategories() {
+  // Raccogli le categorie selezionate
+  const form = document.getElementById('category-form');
+  const selectedCategories = Array.from(form.elements['category'])
+    .filter(input => input.checked)
+    .map(input => input.value);
+
+  if (selectedCategories.length === 0) {
+    alert("Seleziona almeno una categoria per iniziare il gioco.");
+    return;
+  }
+
+  // Nascondi la selezione delle categorie e mostra il contenuto del gioco
+  document.getElementById('category-selection').style.display = 'none';
+  document.getElementById('game-content').style.display = 'block';
+
+  // Filtra le domande dalle categorie selezionate
+  await loadQuestions('domande'); // Carica tutte le domande
+  const filteredQuestions = selectedCategories.flatMap(category => questions[category] || []);
+  
+  // Prepara il set di domande casuali
+  selectedQuestions = filteredQuestions.sort(() => Math.random() - 0.5).slice(0, 25);
+
+  // Avvia il gioco
+  currentQuestionIndex = 0;
+  updateQuestionCounter();
+  nextQuestion();
 }
 
 // Avvia il gioco quando la pagina è caricata
