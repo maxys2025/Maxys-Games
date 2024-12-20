@@ -14,3 +14,16 @@ async function initDomandeGame() {
 // Avvia il gioco quando la pagina è caricata
 window.addEventListener('DOMContentLoaded', initDomandeGame);
 
+function endGame() {
+  document.getElementById('game-content').innerHTML = `
+    <h2>Gioco completato!</h2>
+    <button onclick="restartGame()">Ricomincia</button>
+    <a href="index.html"><button>Torna alla Home</button></a>
+  `;
+}
+
+function restartGame() {
+  currentQuestionIndex = 0; // Reset dell'indice
+  selectedQuestions = []; // Reset delle domande selezionate
+  initDomandeGame(); // Riavvia il gioco
+}
