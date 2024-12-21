@@ -72,11 +72,11 @@ function recordAnswer(isCorrect) {
 // Genera una frase personalizzata basata sul punteggio
 function getPersonalizedMessage(score) {
   if (score <= 5) {
-    return "Devi conoscerlo/a ancora un po'.";
-  } else if (score <= 15) {
-    return "Buon lavoro! Ti stai impegnando.";
+    return "Ci sono ancora delle cose che devi scoprire!.";
+  } else if (score <= 12) {
+    return "Hai fatto un ottimo lavoro!";
   } else {
-    return "Bravissimo/a! Conosci tutto di lui/lei.";
+    return "Conosci il tuo partner alla perfezione!.";
   }
 }
 
