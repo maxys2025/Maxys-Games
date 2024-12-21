@@ -50,10 +50,10 @@ function showQuestion() {
   }
 }
 
-// Aggiorna il contatore delle domande
+// Aggiorna la barra di progresso
 function updateQuestionCounter() {
-  document.getElementById('question-counter').innerText =
-    `${currentQuestionIndex + 1}/${couplesGameConfig.totalQuestions}`;
+  const progress = ((currentQuestionIndex + 1) / couplesGameConfig.totalQuestions) * 100;
+  document.getElementById('progress-bar').style.width = `${progress}%`;
 }
 
 // Registra la risposta e alterna i turni
