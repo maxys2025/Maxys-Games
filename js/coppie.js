@@ -43,7 +43,7 @@ async function startCouplesGame() {
 function showQuestion() {
   if (currentQuestionIndex < selectedQuestions.length) {
     const question = selectedQuestions[currentQuestionIndex];
-    const turnLabel = turn === "him" ? `Domanda per ${nameHim}` : `Domanda per ${nameHer}`;
+    const turnLabel = turn === "him" ? `Domanda per <span class="highlight">${nameHim}</span>` : `Domanda per <span class="highlight">${nameHer}</span>`;
     document.getElementById('question').innerText = `${turnLabel}: ${question.question}`;
   } else {
     endCouplesGame();
@@ -92,8 +92,8 @@ function endCouplesGame() {
   const finalMessage = `
     <h2>Gioco completato!</h2>
     <p>Risultati:</p>
-    <p>${nameHim}: ${score.him} risposte corrette. ${messageHim}</p>
-    <p>${nameHer}: ${score.her} risposte corrette. ${messageHer}</p>
+    <p><span class="highlight">${nameHim}</span>: ${score.him} risposte corrette. ${messageHim}</p>
+    <p><span class="highlight">${nameHer}</span>: ${score.her} risposte corrette. ${messageHer}</p>
   `;
   document.getElementById('final-message').innerHTML = finalMessage;
 }
