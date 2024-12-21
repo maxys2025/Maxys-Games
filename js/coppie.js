@@ -4,26 +4,30 @@ const couplesGameConfig = {
   totalQuestions: 25      // Numero totale di domande
 };
 
-let currentQuestionIndex = 0;
+// Variabili globali
+let currentQuestionIndex = 0; // Dichiarazione unica
 let score = 0;
 let selectedQuestions = [];
 
 // Avvia il Gioco delle Coppie
 async function startCouplesGame() {
+  console.log("Inizio del gioco!"); // Debug
   const nameHim = document.getElementById('name-him').value || "Lui";
   const nameHer = document.getElementById('name-her').value || "Lei";
 
-  console.log(`Giocatori: ${nameHim} e ${nameHer}`);
+  console.log(`Giocatori: ${nameHim} e ${nameHer}`); // Debug
 
   // Nascondi l'input dei nomi e mostra il contenuto del gioco
   document.getElementById('name-input').style.display = 'none';
   document.getElementById('game-content').style.display = 'block';
 
   // Carica le domande dalla categoria specificata
-  await loadQuestions('coppie');
+  await loadQuestions('coppie'); // Caricamento dal file shared.js
   selectedQuestions = (questions[couplesGameConfig.category] || [])
     .sort(() => Math.random() - 0.5) // Mescola le domande
     .slice(0, couplesGameConfig.totalQuestions); // Seleziona il numero desiderato di domande
+
+  console.log("Domande selezionate:", selectedQuestions); // Debug
 
   // Mostra la prima domanda
   nextQuestion();
@@ -39,6 +43,12 @@ function nextQuestion() {
   } else {
     endCouplesGame();
   }
+}
+
+// Aggiorna il contatore delle domande
+function updateQuestionCounter() {
+  document.getElementById('question-counter').innerText =
+    `${currentQuestionIndex}/${couplesGameConfig.totalQuestions}`;
 }
 
 // Registra la risposta (corretta o errata)
@@ -79,9 +89,8 @@ function restartGame() {
 }
 
 // Collega i pulsanti agli eventi
-document.getElementById('start-game').addEventListener('click', () => startCouplesGame());
-document.getElementById('correct-btn').addEventListener('click', () => recordAnswer(true));
-document.getElementById('wrong-btn').addEventListener('click', () => recordAnswer(false));
-document.getElementById('restart-btn').addEventListener('click', () => restartGame());
+window.startCouplesGame = startCouplesGame; // Rende la funzione globale
+window.recordAnswer = recordAnswer; // Rende la funzione globale
+window.restartGame = restartGame; // Rende la funzione globale
 
-console.log("Modulo coppie.js caricato correttamente.");
+console.log("Modulo coppie.js caricato correttamente."); // Debug
