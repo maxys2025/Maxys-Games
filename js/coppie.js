@@ -6,7 +6,6 @@ const couplesGameConfig = {
 
 // Variabili globali
 let score = { him: 0, her: 0 }; // Punteggio separato per Lui e Lei
-let selectedQuestions = [];
 let turn = "him"; // Indica di chi è il turno
 
 // Avvia il Gioco delle Coppie
