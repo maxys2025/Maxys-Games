@@ -13,7 +13,7 @@ async function startCouplesGame() {
   const nameHim = document.getElementById('name-him').value || "Lui";
   const nameHer = document.getElementById('name-her').value || "Lei";
 
-  // Personalizza i nomi visualizzati nel gioco (opzionale)
+  // Personalizza i nomi visualizzati nel gioco (se necessario)
   console.log(`Giocatori: ${nameHim} e ${nameHer}`);
 
   // Nascondi l'input dei nomi e mostra il contenuto del gioco
@@ -23,8 +23,8 @@ async function startCouplesGame() {
   // Carica le domande dalla categoria specificata
   await loadQuestions('coppie');
   selectedQuestions = (questions[couplesGameConfig.category] || [])
-    .sort(() => Math.random() - 0.5)
-    .slice(0, couplesGameConfig.totalQuestions);
+    .sort(() => Math.random() - 0.5) // Mescola le domande
+    .slice(0, couplesGameConfig.totalQuestions); // Seleziona il numero desiderato di domande
 
   // Mostra la prima domanda
   nextQuestion();
@@ -79,3 +79,5 @@ function restartGame() {
   document.getElementById('name-input').style.display = 'block';
 }
 
+// Verifica che il file sia caricato correttamente
+console.log("File coppie.js caricato correttamente.");
