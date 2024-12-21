@@ -1,20 +1,13 @@
-// Configurazione specifica per il Gioco delle Domande
-const gameConfig = {
-  randomQuestions: 25 // Numero totale di domande
+// Configurazione del Gioco Segreti Piccanti
+const secretsGameConfig = {
+  category: "Segreti Piccanti", // Categoria specifica
+  totalQuestions: 25 // Numero di domande
 };
 
-// Avvio del gioco con la selezione delle categorie
-async function startGameWithCategories() {
-  // Raccogli le categorie selezionate
-  const form = document.getElementById('category-form');
-  const selectedCategories = Array.from(form.elements['category'])
-    .filter(input => input.checked)
-    .map(input => input.value);
 
-  if (selectedCategories.length === 0) {
-    alert("Seleziona almeno una categoria per iniziare il gioco.");
-    return;
-  }
+// Avvia il Gioco Segreti Piccanti
+async function startSecretsGame() {
+  console.log("Inizio del gioco Segreti Piccanti!");
 
   // Nascondi la selezione delle categorie e mostra il contenuto del gioco
   document.getElementById('category-selection').style.display = 'none';
