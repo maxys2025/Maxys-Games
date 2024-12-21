@@ -6,6 +6,9 @@ let herCorrect = 0;
 let himWrong = 0;
 let herWrong = 0;
 let currentPlayer = 'him'; // Per determinare chi risponde, 'him' o 'her'
+let currentQuestionIndex = 0; // Aggiungi questa variabile per tracciare l'indice della domanda
+let questions = []; // Variabile globale per le domande
+let selectedQuestions = [];
 
 // Configurazione del Gioco delle Coppie
 const couplesGameConfig = {
@@ -16,9 +19,9 @@ const couplesGameConfig = {
 // Carica le domande da un file JSON
 async function loadQuestions() {
   try {
-    const response = await fetch('questions.json');
+    const response = await fetch('questions.json'); // Assicurati che questions.json sia presente
     const data = await response.json();
-    questions = data.questions;
+    questions = data.questions; // Assicurati che nel JSON ci sia la proprietà 'questions'
     shuffleQuestions();
   } catch (error) {
     console.error("Errore nel caricamento delle domande:", error);
@@ -31,6 +34,9 @@ function shuffleQuestions() {
     const j = Math.floor(Math.random() * (i + 1));
     [questions[i], questions[j]] = [questions[j], questions[i]];
   }
+
+  // Seleziona solo un numero di domande desiderato
+  selectedQuestions = questions.slice(0, couplesGameConfig.totalQuestions);
 }
 
 // Funzione per avviare il gioco
@@ -46,10 +52,7 @@ async function startCouplesGame() {
   document.getElementById('game-content').style.display = 'block';
 
   // Carica le domande dalla categoria specificata
-  await loadQuestions('coppie');
-  selectedQuestions = (questions[couplesGameConfig.category] || [])
-    .sort(() => Math.random() - 0.5)
-    .slice(0, couplesGameConfig.totalQuestions);
+  await loadQuestions(); // Modifica questa riga per non passare un parametro
 
   console.log("Domande selezionate:", selectedQuestions); // Debug
 
@@ -125,20 +128,4 @@ function restartGame() {
   currentQuestionIndex = 0;
   himScore = 0;
   herScore = 0;
-  himCorrect = 0;
-  herCorrect = 0;
-  himWrong = 0;
-  herWrong = 0;
-  selectedQuestions = [];
-  document.getElementById('score-him').innerText = "Punteggio di Lui: 0";
-  document.getElementById('score-her').innerText = "Punteggio di Lei: 0";
-  document.getElementById('end-game').style.display = 'none';
-  document.getElementById('name-input').style.display = 'block';
-}
-
-// Collega i pulsanti agli eventi
-window.startCouplesGame = startCouplesGame;
-window.recordAnswer = recordAnswer;
-window.restartGame = restartGame;
-
-console.log("Modulo coppie.js caricato correttamente.");
+  himCorrect
