@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Segreti Piccanti</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Segreti Piccanti</h1>
+    <p>Rispondi alle domande e scopri i segreti più piccanti!</p>
+  </header>
+  <main>
+    <!-- Inserimento nomi -->
+    <div id="name-input">
+      <h2>Inserisci i tuoi dati</h2>
+      <label for="name-player">Nome Giocatore:</label>
+      <input id="name-player" type="text" placeholder="Il tuo nome">
+      <br>
+      <button onclick="startSecretsGame()">Inizia il Gioco</button>
+    </div>
 
+    <!-- Contenuto del gioco -->
+    <div id="game-content" style="display: none;">
+      <div id="question-container">
+        <p id="question"></p>
+      </div>
+      <div id="controls">
+        <button onclick="recordAnswer(true)">Corretto</button>
+        <button onclick="recordAnswer(false)">Errato</button>
+      </div>
+      <div id="score-board">
+        <p>Punteggio: <span id="score">0</span></p>
+      </div>
+      <div id="progress-container">
+        <div id="progress-bar"></div>
+      </div>
+      <p id="question-counter">0/0</p>
+    </div>
+
+    <!-- Riepilogo finale -->
+    <div id="end-game" style="display: none;">
+      <h2 id="final-message"></h2>
+      <button onclick="restartGame()">Ricomincia</button>
+      <a href="index.html"><button>Torna alla Home</button></a>
+    </div>
+  </main>
+  <footer>
+    <p>Creato con ❤️ da Maxys</p>
+  </footer>
+  <script src="js/shared.js"></script>
+  <script src="js/segreti_piccanti.js"></script>
+</body>
+</html>
