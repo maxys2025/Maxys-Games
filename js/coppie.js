@@ -5,9 +5,7 @@ const couplesGameConfig = {
 };
 
 // Variabili globali
-let currentQuestionIndex = 0;
 let score = { him: 0, her: 0 }; // Punteggio separato per i due giocatori
-let selectedQuestions = [];
 let turn = "him"; // Indica di chi è il turno
 let nameHim = "Lui"; // Nome di Lui (personalizzato)
 let nameHer = "Lei"; // Nome di Lei (personalizzato)
