@@ -1,5 +1,3 @@
-import { loadQuestions, nextQuestion, updateQuestionCounter, endGame } from "./shared.js";
-
 // Configurazione del Gioco delle Coppie
 const couplesGameConfig = {
   category: "Conoscenza", // Categoria delle domande
@@ -29,6 +27,18 @@ async function startCouplesGame() {
 
   // Mostra la prima domanda
   nextQuestion();
+}
+
+// Mostra la prossima domanda
+function nextQuestion() {
+  if (currentQuestionIndex < selectedQuestions.length) {
+    const question = selectedQuestions[currentQuestionIndex];
+    document.getElementById('question').innerText = question.question;
+    currentQuestionIndex++;
+    updateQuestionCounter();
+  } else {
+    endCouplesGame();
+  }
 }
 
 // Registra la risposta (corretta o errata)
