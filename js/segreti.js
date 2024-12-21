@@ -6,19 +6,10 @@ const secretsGameConfig = {
 
 // Variabili globali
 let score = 0;
-let playerName = "Giocatore";
 
 // Avvia il Gioco Segreti Piccanti
 async function startSecretsGame() {
   console.log("Inizio del gioco Segreti Piccanti!");
-
-  // Ottieni il nome del giocatore
-  playerName = document.getElementById('name-player').value || "Giocatore";
-  console.log(`Giocatore: ${playerName}`);
-
-  // Nascondi l'input del nome e mostra il contenuto del gioco
-  document.getElementById('name-input').style.display = 'none';
-  document.getElementById('game-content').style.display = 'block';
 
   // Carica le domande dalla categoria specificata
   await loadQuestions('segreti');
