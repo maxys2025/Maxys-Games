@@ -4,16 +4,24 @@ const couplesGameConfig = {
   totalQuestions: 25      // Numero totale di domande
 };
 
-let currentQuestionIndex = 0;
-let score = 0;
-let selectedQuestions = [];
+// Variabili globali (evitare duplicati)
+if (typeof currentQuestionIndex === "undefined") {
+  var currentQuestionIndex = 0; // Usa `var` per prevenire conflitti
+}
+if (typeof score === "undefined") {
+  var score = 0;
+}
+if (typeof selectedQuestions === "undefined") {
+  var selectedQuestions = [];
+}
 
 // Avvia il Gioco delle Coppie
 async function startCouplesGame() {
+  console.log("Gioco delle Coppie avviato!");
   const nameHim = document.getElementById('name-him').value || "Lui";
   const nameHer = document.getElementById('name-her').value || "Lei";
 
-  // Personalizza i nomi visualizzati nel gioco (se necessario)
+  // Personalizza i nomi visualizzati nel gioco
   console.log(`Giocatori: ${nameHim} e ${nameHer}`);
 
   // Nascondi l'input dei nomi e mostra il contenuto del gioco
@@ -79,5 +87,5 @@ function restartGame() {
   document.getElementById('name-input').style.display = 'block';
 }
 
-// Verifica che il file sia caricato correttamente
+// Test di caricamento
 console.log("File coppie.js caricato correttamente.");
