@@ -5,7 +5,6 @@ const couplesGameConfig = {
 };
 
 // Variabili globali
-let currentQuestionIndex = 0; // Dichiarazione unica
 let score = 0;
 let selectedQuestions = [];
 
