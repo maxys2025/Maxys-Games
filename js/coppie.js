@@ -1,7 +1,7 @@
 // Configurazione del Gioco delle Coppie
 const couplesGameConfig = {
   category: "Conoscenza", // Categoria delle domande
-  totalQuestions: 25      // Numero totale di domande
+  totalQuestions: 30      // Numero totale di domande
 };
 
 // Variabili globali
@@ -43,8 +43,8 @@ async function startCouplesGame() {
 function showQuestion() {
   if (currentQuestionIndex < selectedQuestions.length) {
     const question = selectedQuestions[currentQuestionIndex];
-    const turnLabel = turn === "him" ? nameHim : nameHer;
-    document.getElementById('question').innerText = `(${turnLabel}): ${question.question}`;
+    const turnLabel = turn === "him" ? `Domanda per ${nameHim}` : `Domanda per ${nameHer}`;
+    document.getElementById('question').innerText = `${turnLabel}: ${question.question}`;
   } else {
     endCouplesGame();
   }
