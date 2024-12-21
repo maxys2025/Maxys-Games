@@ -144,3 +144,9 @@ footer a:hover {
   color: #FFB321;
   font-weight: bold;
 }
+#name-input {
+  text-align: center;  
+}
+#end-game {
+  text-align: center;  
+}
