@@ -31,6 +31,9 @@ async function startCouplesGame() {
   nextQuestion();
 }
 
+// Rendi la funzione accessibile a livello globale
+window.startCouplesGame = startCouplesGame;
+
 // Mostra la prossima domanda
 function nextQuestion() {
   if (currentQuestionIndex < selectedQuestions.length) {
@@ -92,3 +95,7 @@ window.recordAnswer = recordAnswer; // Rende la funzione globale
 window.restartGame = restartGame; // Rende la funzione globale
 
 console.log("Modulo coppie.js caricato correttamente."); // Debug
+
+window.onload = function() {
+    document.getElementById("start-game-button").addEventListener("click", startCouplesGame);
+};
