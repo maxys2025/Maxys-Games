@@ -7,6 +7,32 @@ let himWrong = 0;
 let herWrong = 0;
 let currentPlayer = 'him'; // Per determinare chi risponde, 'him' o 'her'
 
+// Configurazione del Gioco delle Coppie
+const couplesGameConfig = {
+  category: "Conoscenza", // Categoria delle domande
+  totalQuestions: 25      // Numero totale di domande
+};
+
+// Carica le domande da un file JSON
+async function loadQuestions() {
+  try {
+    const response = await fetch('questions.json');
+    const data = await response.json();
+    questions = data.questions;
+    shuffleQuestions();
+  } catch (error) {
+    console.error("Errore nel caricamento delle domande:", error);
+  }
+}
+
+// Mescola le domande
+function shuffleQuestions() {
+  for (let i = questions.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [questions[i], questions[j]] = [questions[j], questions[i]];
+  }
+}
+
 // Funzione per avviare il gioco
 async function startCouplesGame() {
   console.log("Inizio del gioco!"); // Debug
