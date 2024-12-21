@@ -5,14 +5,20 @@ const couplesGameConfig = {
 };
 
 // Variabili globali
-let score = { him: 0, her: 0 }; // Punteggio separato per Lui e Lei
+let currentQuestionIndex = 0;
+let score = { him: 0, her: 0 }; // Punteggio separato per i due giocatori
+let selectedQuestions = [];
 let turn = "him"; // Indica di chi è il turno
+let nameHim = "Lui"; // Nome di Lui (personalizzato)
+let nameHer = "Lei"; // Nome di Lei (personalizzato)
 
 // Avvia il Gioco delle Coppie
 async function startCouplesGame() {
   console.log("Inizio del gioco!");
-  const nameHim = document.getElementById('name-him').value || "Lui";
-  const nameHer = document.getElementById('name-her').value || "Lei";
+
+  // Ottieni i nomi inseriti dai giocatori
+  nameHim = document.getElementById('name-him').value || "Lui";
+  nameHer = document.getElementById('name-her').value || "Lei";
 
   console.log(`Giocatori: ${nameHim} e ${nameHer}`);
 
@@ -39,7 +45,7 @@ async function startCouplesGame() {
 function showQuestion() {
   if (currentQuestionIndex < selectedQuestions.length) {
     const question = selectedQuestions[currentQuestionIndex];
-    const turnLabel = turn === "him" ? "Lui" : "Lei";
+    const turnLabel = turn === "him" ? nameHim : nameHer;
     document.getElementById('question').innerText = `(${turnLabel}): ${question.question}`;
   } else {
     endCouplesGame();
@@ -65,17 +71,31 @@ function recordAnswer(isCorrect) {
   showQuestion();
 }
 
+// Genera una frase personalizzata basata sul punteggio
+function getPersonalizedMessage(score) {
+  if (score <= 5) {
+    return "Devi conoscerlo/a ancora un po'.";
+  } else if (score <= 15) {
+    return "Buon lavoro! Ti stai impegnando.";
+  } else {
+    return "Bravissimo/a! Conosci tutto di lui/lei.";
+  }
+}
+
 // Termina il gioco e mostra il riepilogo
 function endCouplesGame() {
   document.getElementById('game-content').style.display = 'none';
   const endGameDiv = document.getElementById('end-game');
   endGameDiv.style.display = 'block';
 
+  const messageHim = getPersonalizedMessage(score.him);
+  const messageHer = getPersonalizedMessage(score.her);
+
   const finalMessage = `
     <h2>Gioco completato!</h2>
     <p>Risultati:</p>
-    <p>Lui: ${score.him} risposte corrette</p>
-    <p>Lei: ${score.her} risposte corrette</p>
+    <p>${nameHim}: ${score.him} risposte corrette. ${messageHim}</p>
+    <p>${nameHer}: ${score.her} risposte corrette. ${messageHer}</p>
   `;
   document.getElementById('final-message').innerHTML = finalMessage;
 }
@@ -85,6 +105,8 @@ function restartGame() {
   currentQuestionIndex = 0;
   score = { him: 0, her: 0 };
   selectedQuestions = [];
+  nameHim = "Lui";
+  nameHer = "Lei";
   document.getElementById('question').innerText = "";
   document.getElementById('question-counter').innerText = "0/0";
   document.getElementById('score').innerText = "0";
