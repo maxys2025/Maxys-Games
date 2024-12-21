@@ -125,3 +125,19 @@ footer a:hover {
   border-radius: 8px;
   color: #FFB321;
 }
+#progress-container {
+  width: 100%;
+  background-color: #e0e0e0;
+  border-radius: 25px;
+  overflow: hidden;
+  height: 20px;
+  margin: 10px 0;
+}
+
+#progress-bar {
+  height: 100%;
+  width: 0%; /* Parte iniziale della barra */
+  background-color: #FFB321;
+  border-radius: 25px;
+  transition: width 0.3s ease;
+}
