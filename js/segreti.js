@@ -9,9 +9,7 @@ const secretsGameConfig = {
 async function startSecretsGame() {
   console.log("Inizio del gioco Segreti Piccanti!");
 
-  // Nascondi la selezione delle categorie e mostra il contenuto del gioco
-  document.getElementById('category-selection').style.display = 'none';
-  document.getElementById('game-content').style.display = 'block';
+document.getElementById('game-content').style.display = 'block';
 
   // Filtra le domande dalle categorie selezionate
   await loadQuestions('domande'); // Carica tutte le domande
@@ -53,11 +51,10 @@ function endGame() {
 function restartGame() {
   currentQuestionIndex = 0; // Reset dell'indice
   selectedQuestions = []; // Reset delle domande selezionate
-  document.getElementById('game-content').style.display = 'none';
-  document.getElementById('category-selection').style.display = 'block';
+  document.getElementById('game-content').style.display = 'block';
 }
 
 // Nascondi il contenuto del gioco quando la pagina è caricata
 window.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('game-content').style.display = 'none';
+  document.getElementById('game-content').style.display = 'block';
 });
