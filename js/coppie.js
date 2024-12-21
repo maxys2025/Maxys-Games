@@ -1,84 +1,77 @@
-// Coppie.js - Gioco delle Coppie
-import { loadQuestions } from "./shared.js";
+import { loadQuestions, nextQuestion, updateQuestionCounter, endGame } from "./shared.js";
 
-class CouplesGame {
-  constructor() {
-    this.currentQuestionIndex = 0;
-    this.score = 0;
-    this.selectedQuestions = [];
-    this.config = {
-      category: "Conoscenza",
-      totalQuestions: 25
-    };
-  }
+// Configurazione del Gioco delle Coppie
+const couplesGameConfig = {
+  category: "Conoscenza", // Categoria delle domande
+  totalQuestions: 25      // Numero totale di domande
+};
 
-  async start() {
-    const nameHim = document.getElementById('name-him').value || "Lui";
-    const nameHer = document.getElementById('name-her').value || "Lei";
+let currentQuestionIndex = 0;
+let score = 0;
+let selectedQuestions = [];
 
-    console.log(`Giocatori: ${nameHim} e ${nameHer}`);
-    document.getElementById('name-input').style.display = 'none';
-    document.getElementById('game-content').style.display = 'block';
+// Avvia il Gioco delle Coppie
+async function startCouplesGame() {
+  const nameHim = document.getElementById('name-him').value || "Lui";
+  const nameHer = document.getElementById('name-her').value || "Lei";
 
-    await loadQuestions('coppie');
-    this.selectedQuestions = (questions[this.config.category] || [])
-      .sort(() => Math.random() - 0.5)
-      .slice(0, this.config.totalQuestions);
+  console.log(`Giocatori: ${nameHim} e ${nameHer}`);
 
-    this.nextQuestion();
-  }
+  // Nascondi l'input dei nomi e mostra il contenuto del gioco
+  document.getElementById('name-input').style.display = 'none';
+  document.getElementById('game-content').style.display = 'block';
 
-  nextQuestion() {
-    if (this.currentQuestionIndex < this.selectedQuestions.length) {
-      const question = this.selectedQuestions[this.currentQuestionIndex];
-      document.getElementById('question').innerText = question.question;
-      this.currentQuestionIndex++;
-    } else {
-      this.endGame();
-    }
-  }
+  // Carica le domande dalla categoria specificata
+  await loadQuestions('coppie');
+  selectedQuestions = (questions[couplesGameConfig.category] || [])
+    .sort(() => Math.random() - 0.5) // Mescola le domande
+    .slice(0, couplesGameConfig.totalQuestions); // Seleziona il numero desiderato di domande
 
-  recordAnswer(isCorrect) {
-    if (isCorrect) {
-      this.score++;
-      document.getElementById('score').innerText = `Punteggio: ${this.score}`;
-    }
-    this.nextQuestion();
-  }
-
-  endGame() {
-    document.getElementById('game-content').style.display = 'none';
-    const endGameDiv = document.getElementById('end-game');
-    endGameDiv.style.display = 'block';
-
-    let message = "";
-    if (this.score <= 10) {
-      message = "Forse dovreste conoscervi meglio!";
-    } else if (this.score <= 20) {
-      message = "Vi conoscete abbastanza bene!";
-    } else {
-      message = "Siete un duo perfetto!";
-    }
-
-    document.getElementById('final-message').innerText = `Punteggio finale: ${this.score}/${this.config.totalQuestions}. ${message}`;
-  }
-
-  restart() {
-    this.currentQuestionIndex = 0;
-    this.score = 0;
-    this.selectedQuestions = [];
-    document.getElementById('score').innerText = "Punteggio: 0";
-    document.getElementById('end-game').style.display = 'none';
-    document.getElementById('name-input').style.display = 'block';
-  }
+  // Mostra la prima domanda
+  nextQuestion();
 }
 
-const game = new CouplesGame();
+// Registra la risposta (corretta o errata)
+function recordAnswer(isCorrect) {
+  if (isCorrect) {
+    score++;
+    document.getElementById('score').innerText = `Punteggio: ${score}`;
+  }
+  nextQuestion();
+}
+
+// Termina il gioco e mostra il riepilogo
+function endCouplesGame() {
+  document.getElementById('game-content').style.display = 'none';
+  const endGameDiv = document.getElementById('end-game');
+  endGameDiv.style.display = 'block';
+
+  let message = "";
+  if (score <= 10) {
+    message = "Forse dovreste conoscervi meglio!";
+  } else if (score <= 20) {
+    message = "Vi conoscete abbastanza bene!";
+  } else {
+    message = "Siete un duo perfetto!";
+  }
+
+  document.getElementById('final-message').innerText = `Punteggio finale: ${score}/${couplesGameConfig.totalQuestions}. ${message}`;
+}
+
+// Riavvia il gioco
+function restartGame() {
+  currentQuestionIndex = 0;
+  score = 0;
+  selectedQuestions = [];
+  document.getElementById('score').innerText = "Punteggio: 0";
+  document.getElementById('end-game').style.display = 'none';
+  document.getElementById('name-input').style.display = 'block';
+}
 
 // Collega i pulsanti agli eventi
-document.getElementById('start-game').addEventListener('click', () => game.start());
-document.getElementById('correct-btn').addEventListener('click', () => game.recordAnswer(true));
-document.getElementById('wrong-btn').addEventListener('click', () => game.recordAnswer(false));
-document.getElementById('restart-btn').addEventListener('click', () => game.restart());
+document.getElementById('start-game').addEventListener('click', () => startCouplesGame());
+document.getElementById('correct-btn').addEventListener('click', () => recordAnswer(true));
+document.getElementById('wrong-btn').addEventListener('click', () => recordAnswer(false));
+document.getElementById('restart-btn').addEventListener('click', () => restartGame());
 
 console.log("Modulo coppie.js caricato correttamente.");
