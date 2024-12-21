@@ -43,8 +43,10 @@ async function startCouplesGame() {
 function showQuestion() {
   if (currentQuestionIndex < selectedQuestions.length) {
     const question = selectedQuestions[currentQuestionIndex];
-    const turnLabel = turn === "him" ? `Domanda per <span class="highlight">${nameHim}</span>` : `Domanda per <span class="highlight">${nameHer}</span>`;
-    document.getElementById('question').innerText = `${turnLabel}: ${question.question}`;
+    const turnLabel = turn === "him" 
+      ? `<span class="highlight">${nameHim}</span>` 
+      : `<span class="highlight">${nameHer}</span>`;
+    document.getElementById('question').innerHTML = `Domanda per ${turnLabel}: ${question.question}`;
   } else {
     endCouplesGame();
   }
