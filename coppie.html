@@ -34,8 +34,20 @@
         <button id="wrong-btn">Errato</button>
       </div>
       <div id="score-board">
-        <p id="score">Punteggio: 0</p>
+        <p>Punteggio Lui: <span id="score-him">0</span></p>
+        <p>Punteggio Lei: <span id="score-her">0</span></p>
       </div>
+      <div id="progress-bars">
+        <div class="progress-container">
+          <p>Progresso Lui:</p>
+          <div class="progress-bar" id="progress-him"></div>
+        </div>
+        <div class="progress-container">
+          <p>Progresso Lei:</p>
+          <div class="progress-bar" id="progress-her"></div>
+        </div>
+      </div>
+      <p id="question-counter"></p>
     </div>
 
     <!-- Riepilogo finale -->
@@ -46,8 +58,9 @@
     </div>
   </main>
   <footer>
-    <p>Creato con ❤️ da Maxys</p>
+    <p>versione 2</p>
   </footer>
-  <script type="module" src="js/coppie.js"></script>
+  <script src="js/shared.js"></script>
+  <script src="js/coppie.js"></script>
 </body>
 </html>
