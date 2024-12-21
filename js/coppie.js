@@ -6,7 +6,6 @@ const couplesGameConfig = {
 
 // Variabili globali
 let score = 0;
-let selectedQuestions = [];
 
 // Avvia il Gioco delle Coppie
 async function startCouplesGame() {
