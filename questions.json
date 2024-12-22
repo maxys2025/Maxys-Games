@@ -90,8 +90,7 @@
       { "question": "Se potessi scegliere una sola qualità per descriverti, quale sarebbe?", "category": "Curiosità" },
       { "question": "Cosa ti affascina di più nell’universo?", "category": "Curiosità" },
       { "question": "Ti piacerebbe essere famoso/a?", "category": "Curiosità" },
-      { "question": "Hai mai avuto un deja vu?", "category": "Curiosità" },
-      { "question": "Domanda", "category": "Curiosità" }
+      { "question": "Hai mai avuto un deja vu?", "category": "Curiosità" }
     ],
     "Sessualità": [
       { "question": "A che età hai dato il primo bacio?", "category": "Sessualità" },
@@ -156,40 +155,93 @@
     ]
   },
   "coppie": {
-    "Pref": [
-      { "question": "Qual è il tuo colore preferito?", "category": "Preferenze" },
-      { "question": "Qual è il tuo piatto preferito?", "category": "Preferenze" },
-      { "question": "Qual è il tuo genere musicale preferito?", "category": "Preferenze" },
-      { "question": "Qual è la tua stagione preferita?", "category": "Preferenze" },
-      { "question": "Qual è il tuo hobby preferito?", "category": "Preferenze" }
+    "Preferenze": [
+      { "question": "Qual è la sua stagione preferita?", "category": "Preferenze" },
+      { "question": "Qual è il cibo che detesta mangiare?", "category": "Preferenze" },
+      { "question": "Preferisce il tè o il caffè", "category": "Preferenze" },
+      { "question": "Qual è il suo dolce preferito?", "category": "Preferenze" },
+      { "question": "Qual è il suo animale preferito?", "category": "Preferenze" },
+      { "question": "Preferisce leggere o guardare film?", "category": "Preferenze" },
+      { "question": "Preferisce dolce o salato?", "category": "Preferenze" },
+      { "question": "Qual è il suo modo preferito di trascorrere una serata?", "category": "Preferenze" },
+      { "question": "Qual è il colore che indossa più spesso?", "category": "Preferenze" },
+      { "question": "Preferisce le vacanze avventurose o rilassanti?", "category": "Preferenze" },
+      { "question": "Qual è il suo sport preferito?", "category": "Preferenze" },
+      { "question": "Preferisce il mare o la montagna?", "category": "Preferenze" },
+      { "question": "Preferisce l'albo o il tramonte?", "category": "Preferenze" },
+      { "question": "Preferisce drinks alcolici o analcolici?", "category": "Preferenze" },
+      { "question": "Preferisce le feste in grande o le serate intime?", "category": "Preferenze" },
+      { "question": "Preferisce una giornata di shopping o una giornata in SPA?", "category": "Preferenze" },
+      { "question": "Cosa sceglierebbe tra vivere in una grossa città o vivere in una paesino?", "category": "Preferenze" },
+      { "question": "Cosa preferisce tra serie TV o reality Show", "category": "Preferenze" },
+      { "question": "Cosa sceglierebbe tra pizza o sushi?", "category": "Preferenze" },
+      { "question": "Preferisce il caldo o il freddo?", "category": "Preferenze" }
     ],
-    "Esp": [
-      { "question": "Qual è stato il viaggio più bello che hai fatto?", "category": "Esperienze" },
-      { "question": "Hai mai fatto qualcosa di estremo, come paracadutismo?", "category": "Esperienze" },
-      { "question": "Qual è il tuo ricordo d'infanzia più bello?", "category": "Esperienze" },
-      { "question": "Hai mai incontrato qualcuno di famoso?", "category": "Esperienze" },
-      { "question": "Qual è stata la tua vacanza più divertente?", "category": "Esperienze" }
+    "Esperienze": [
+      { "question": "Qual è stato il suo primo lavoro?", "category": "Esperienze" },
+      { "question": "Qual è stata la cosa più imbarazzante che le sia mai successa?", "category": "Esperienze" },
+      { "question": "Qual è stata la prima auto che ha avuto?", "category": "Esperienze" },
+      { "question": "Che cosa sarebbe voluto/a diventare da grande?", "category": "Esperienze" },
+      { "question": "Chi è stato il suo primo amore?", "category": "Esperienze" },
+      { "question": "Qual è stato il più grande traguardo che ha mai raggiunto?", "category": "Esperienze" },
+      { "question": "Ha mai cantato al Karaoke?", "category": "Esperienze" },
+      { "question": "Ha mai viaggiato da solo?", "category": "Esperienze" },
+      { "question": "Ha mai dormito in una tenda?", "category": "Esperienze" },
+      { "question": "Ha mai scritto una lettera d’amore?", "category": "Esperienze" },
+      { "question": "Che scuola ha frequentato?", "category": "Esperienze" },
+      { "question": "É mai stato/a ricoverato/a in ospedale?", "category": "Esperienze" },
+      { "question": "Ha mai dato uno schiaffo ad una persona?", "category": "Esperienze" },
+      { "question": "Ha mai rubato?", "category": "Esperienze" },
+      { "question": "Andrebbe mai in una spiaggia per nudisti?", "category": "Esperienze" },
+      { "question": "É mai andata da uno psicologo?", "category": "Esperienze" },
+      { "question": "Gli/le è mai successo qualcosa di paranormale?", "category": "Esperienze" },
+      { "question": "É mai stato/a bocciato/a a scuola?", "category": "Esperienze" },
+      { "question": "Ha mai scritto un diario segreto?", "category": "Esperienze" },
+      { "question": "Ha mai cambiato idea all'ultimo momento?", "category": "Esperienze" }
     ],
-    "Pic": [
-      { "question": "Qual è stato il viaggio più bello che hai fatto?", "category": "Esperienze" },
-      { "question": "Hai mai fatto qualcosa di estremo, come paracadutismo?", "category": "Esperienze" },
-      { "question": "Qual è il tuo ricordo d'infanzia più bello?", "category": "Esperienze" },
-      { "question": "Hai mai incontrato qualcuno di famoso?", "category": "Esperienze" },
-      { "question": "Qual è stata la tua vacanza più divertente?", "category": "Esperienze" }
+    "Curiosità": [
+      { "question": "Quando è il suo compleanno?", "category": "Curiosità" },
+      { "question": "Di che cosa ha paura?", "category": "Curiosità" },
+      { "question": "Qual è il suo hobby?", "category": "Curiosità" },
+      { "question": "Gli/le piacciono i film horror?", "category": "Curiosità" },
+      { "question": "Ha mai avuto animali domestici?", "category": "Curiosità" },
+      { "question": "É una persona istintiva o riflessiva?", "category": "Curiosità" },
+      { "question": "Vorrebbe avere figli?", "category": "Curiosità" },
+      { "question": "Qual è il suo numero di scarpa?", "category": "Curiosità" },
+      { "question": "É una persona religiosa?", "category": "Curiosità" },
+      { "question": "Cosa fa per rilassarsi?", "category": "Curiosità" },
+      { "question": "Quali altre lingue conosce oltre all'italiano?", "category": "Curiosità" },
+      { "question": "Ha fratelli o sorelle?", "category": "Curiosità" },
+      { "question": "Ha o ha mai avuto animali?", "category": "Curiosità" },
+      { "question": "É bravo/a in matematica?", "category": "Curiosità" },
+      { "question": "Vorrebbe fare una crociera?", "category": "Curiosità" },
+      { "question": "Crede nell'oroscopo?", "category": "Curiosità" },
+      { "question": "Quale sarebbe il suo lavoro ideale?", "category": "Curiosità" },
+      { "question": "Ha un oggetto portafortuna?", "category": "Curiosità" },
+      { "question": "A che ora si sveglia la mattina?", "category": "Curiosità" },
+      { "question": "Come si chiamano i suoi genitori?", "category": "Curiosità" }
     ],
-    "Boh": [
-      { "question": "Qual è stato il viaggio più bello che hai fatto?", "category": "Esperienze" },
-      { "question": "Hai mai fatto qualcosa di estremo, come paracadutismo?", "category": "Esperienze" },
-      { "question": "Qual è il tuo ricordo d'infanzia più bello?", "category": "Esperienze" },
-      { "question": "Hai mai incontrato qualcuno di famoso?", "category": "Esperienze" },
-      { "question": "Qual è stata la tua vacanza più divertente?", "category": "Esperienze" }
-    ],
-    "Cur": [
-      { "question": "Se potessi avere un superpotere, quale sarebbe?", "category": "Curiosità" },
-      { "question": "Qual è l'animale che ti rappresenta di più?", "category": "Curiosità" },
-      { "question": "Se potessi vivere ovunque, dove sarebbe?", "category": "Curiosità" },
-      { "question": "Qual è il tuo sogno più strano?", "category": "Curiosità" },
-      { "question": "Se potessi cenare con una persona famosa, chi sarebbe?", "category": "Curiosità" }
+    "Sessualità": [
+      { "question": "A che età ha dato il primo bacio?", "category": "Sessualità" },
+      { "question": "A che età ha perso la verginità?", "category": "Sessualità" },
+      { "question": "É etero oppure bisex?", "category": "Sessualità" },
+      { "question": "Qual è la sua posizione preferita?", "category": "Sessualità" },
+      { "question": "Si masturba?", "category": "Sessualità" },
+      { "question": "Guarda video porno?", "category": "Sessualità" },
+      { "question": "Con quanti/e partner è stato/a a letto?", "category": "Sessualità" },
+      { "question": "Gli/le piace il sesso orale?", "category": "Sessualità" },
+      { "question": "Gli/le piace il sesso anale? ", "category": "Sessualità" },
+      { "question": "Cosa odia nel sesso?", "category": "Sessualità" },
+      { "question": "Preferisce tenere le luci accese o spente?", "category": "Sessualità" },
+      { "question": "Qual è la cosa che lo/la eccita subito?", "category": "Sessualità" },
+      { "question": "Quale parte del tuo corpo lo/la attira di più?", "category": "Sessualità" },
+      { "question": "Preferisce baci lunghi o brevi ma intensi?", "category": "Sessualità" },
+      { "question": "Gli/le piace prendere l'iniziativa a letto?", "category": "Sessualità" },
+      { "question": "Ha mai avuto una scopamicizia?", "category": "Sessualità" },
+      { "question": "É mai uscito/a senza intimo?", "category": "Sessualità" },
+      { "question": "Ha qualche tipo di perversione?", "category": "Sessualità" },
+      { "question": "Ha mai avuto esperienze con persone dello stesso sesso?", "category": "Sessualità" },
+      { "question": "Ha mai letto racconti erotici?", "category": "Sessualità" }
     ]
   },
   "segreti": {
