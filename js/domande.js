@@ -52,6 +52,7 @@ async function startGameWithCategories() {
 function nextQuestion() {
   if (currentQuestionIndex < selectedQuestions.length) {
     const question = selectedQuestions[currentQuestionIndex];
+    document.getElementById('category').innerText = question.category; // Mostra la categoria
     document.getElementById('question').innerText = question.question;
     currentQuestionIndex++;
     updateQuestionCounter();
