@@ -95,14 +95,15 @@ function recordAnswer(isCorrect) {
   showQuestion();
 }
 
-// Genera una frase personalizzata basata sul punteggio
 function getPersonalizedMessage(score) {
-  if (score <= 5) {
-    return "Ci sono ancora delle cose che devi scoprire!";
-  } else if (score <= 12) {
-    return "Hai fatto un ottimo lavoro!";
-  } else {
-    return "Conosci il tuo partner alla perfezione!";
+  if (score >= 0 && score <= 1) {
+    return "Ma state insieme o è uno scherzo? 💔";
+  } else if (score >= 2 && score <= 5) {
+    return "È un buon inizio ma bisogna lavorarci 😊";
+  } else if (score >= 6 && score <= 8) {
+    return "Siete un'ottima coppia ❤️ arriverete lontani!";
+  } else if (score >= 9 && score <= 10) {
+    return "Siete fantastici ✨ vi conoscete alla perfezione!";
   }
 }
 
