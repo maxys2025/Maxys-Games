@@ -10,6 +10,8 @@ let score = { him: 0, her: 0 }; // Punteggio separato per i due giocatori
 let turn = "him"; // Indica di chi è il turno
 let nameHim = "Lui"; // Nome di Lui (personalizzato)
 let nameHer = "Lei"; // Nome di Lei (personalizzato)
+let selectedQuestions = [];
+let currentQuestionIndex = 0;
 
 // Avvia il Gioco delle Coppie
 async function startCouplesGame() {
@@ -27,15 +29,30 @@ async function startCouplesGame() {
 
   // Carica le domande dalle categorie specificate
   await loadQuestions('coppie');
+  console.log("Domande caricate:", questions);
+
+  if (!questions) {
+    console.error("Errore: le domande non sono state caricate.");
+    document.getElementById('question').innerHTML = "Errore: impossibile caricare le domande.";
+    return;
+  }
+
+  // Seleziona le domande da ciascuna categoria
   selectedQuestions = couplesGameConfig.categories.flatMap(category => {
     const questionsInCategory = questions[category] || [];
     return questionsInCategory.sort(() => Math.random() - 0.5).slice(0, couplesGameConfig.questionsPerCategory);
   });
 
-  console.log("Domande selezionate:", selectedQuestions);
+  if (selectedQuestions.length === 0) {
+    console.error("Errore: nessuna domanda trovata.");
+    document.getElementById('question').innerHTML = "Errore: nessuna domanda trovata.";
+    return;
+  }
 
   // Mescola le domande selezionate
   selectedQuestions = selectedQuestions.sort(() => Math.random() - 0.5);
+
+  console.log("Domande selezionate:", selectedQuestions);
 
   // Mostra la prima domanda
   currentQuestionIndex = 0;
@@ -117,8 +134,7 @@ function restartGame() {
   nameHim = "Lui";
   nameHer = "Lei";
   document.getElementById('question').innerText = "";
-  document.getElementById('question-counter').innerText = "0/0";
-  document.getElementById('score').innerText = "0";
+  document.getElementById('progress-bar').style.width = "0%";
   document.getElementById('end-game').style.display = 'none';
   document.getElementById('name-input').style.display = 'block';
 }
