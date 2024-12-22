@@ -1,8 +1,8 @@
 // Configurazione del Gioco delle Coppie
 const couplesGameConfig = {
-  categories: ["Pref", "Esp", "Pic", "Boh", "Cur"], // Sottocategorie
-  questionsPerCategory: 6, // Numero di domande per sottocategoria
-  totalQuestions: 30 // Numero totale di domande
+  categories: ["Preferenze", "Esperienze", "Curiosità", "Sessualità"], // Sottocategorie
+  questionsPerCategory: 5, // Numero di domande per sottocategoria
+  totalQuestions: 20 // Numero totale di domande
 };
 
 // Variabili globali
