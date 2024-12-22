@@ -1,6 +1,6 @@
 // Configurazione specifica per il Gioco delle Domande
 const gameConfig = {
-  categories: ["Pref", "Esp", "Pic", "Boh", "Cur"], // Sottocategorie
+  categories: ["Preferenze", "Esperienze", "Curiosità", "Sessualità", "Amore"], // Sottocategorie
   questionsPerCategory: 6, // Numero di domande per sottocategoria
   totalQuestions: 30 // Numero totale di domande
 };
@@ -15,6 +15,16 @@ async function startGameWithCategories() {
 
   if (selectedCategories.length === 0) {
     alert("Seleziona almeno una categoria per iniziare il gioco.");
+    return;
+  }
+
+    // Carica le domande dalle categorie specificate
+  await loadQuestions('coppie');
+  console.log("Domande caricate:", questions);
+
+  if (!questions) {
+    console.error("Errore: le domande non sono state caricate.");
+    document.getElementById('question').innerHTML = "Errore: impossibile caricare le domande.";
     return;
   }
 
