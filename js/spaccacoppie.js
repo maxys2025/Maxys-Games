@@ -1,6 +1,6 @@
 // Configurazione del Gioco Segreti Piccanti
 const secretsGameConfig = {
-  category: "Piccanti", // Categoria specifica
+  category: "Provocazioni", // Categoria specifica
   totalQuestions: 25    // Numero di domande
 };
 
@@ -9,7 +9,7 @@ async function startSecretsGame() {
   console.log("Inizio del gioco Segreti Piccanti!");
 
   // Carica le domande dalla categoria specificata
-  await loadQuestions('segreti'); // Carica dalla chiave 'segreti'
+  await loadQuestions('spaccacoppie'); // Carica dalla chiave 'segreti'
   console.log("Domande caricate:", questions);
 
   // Filtra le domande per la categoria "Piccanti"
