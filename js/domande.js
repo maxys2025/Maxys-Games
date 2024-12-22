@@ -1,6 +1,6 @@
 // Configurazione specifica per il Gioco delle Domande
 const gameConfig = {
-  randomQuestions: 25 // Numero totale di domande
+  totalQuestions: 30 // Numero totale di domande
 };
 
 // Avvio del gioco con la selezione delle categorie
@@ -20,29 +20,56 @@ async function startGameWithCategories() {
   document.getElementById('category-selection').style.display = 'none';
   document.getElementById('game-content').style.display = 'block';
 
-  // Filtra le domande dalle categorie selezionate
+  // Carica le domande dalla categoria 'domande'
   await loadQuestions('domande'); // Carica tutte le domande
-  const filteredQuestions = selectedCategories.flatMap(category => questions[category] || []);
-  
-  // Prepara il set di domande casuali
-  selectedQuestions = filteredQuestions.sort(() => Math.random() - 0.5).slice(0, gameConfig.randomQuestions);
+
+  // Dividi equamente le domande tra le categorie selezionate
+  const questionsPerCategory = Math.floor(gameConfig.totalQuestions / selectedCategories.length);
+  let selectedQuestions = selectedCategories.flatMap(category => {
+    const questionsInCategory = questions[category] || [];
+    return questionsInCategory.sort(() => Math.random() - 0.5).slice(0, questionsPerCategory);
+  });
+
+  // Se il numero totale di domande è inferiore a quello richiesto, aggiungi altre domande dalle categorie scelte
+  while (selectedQuestions.length < gameConfig.totalQuestions) {
+    const randomCategory = selectedCategories[Math.floor(Math.random() * selectedCategories.length)];
+    const extraQuestions = (questions[randomCategory] || []).filter(q => !selectedQuestions.includes(q));
+    if (extraQuestions.length > 0) {
+      selectedQuestions.push(extraQuestions[Math.floor(Math.random() * extraQuestions.length)]);
+    }
+  }
+
+  // Mescola le domande selezionate
+  selectedQuestions = selectedQuestions.sort(() => Math.random() - 0.5);
 
   // Avvia il gioco
   currentQuestionIndex = 0;
   updateQuestionCounter();
-  nextQuestion();
+  nextQuestion(selectedQuestions);
+}
+
+// Mostra la prossima domanda
+function nextQuestion(selectedQuestions) {
+  if (currentQuestionIndex < selectedQuestions.length) {
+    const question = selectedQuestions[currentQuestionIndex];
+    document.getElementById('question').innerText = question.question;
+    currentQuestionIndex++;
+    updateQuestionCounter();
+  } else {
+    endGame(selectedQuestions);
+  }
 }
 
 // Aggiorna la barra di progresso
 function updateQuestionCounter() {
-  const progress = ((currentQuestionIndex + 1) / gameConfig.randomQuestions) * 100;
+  const progress = ((currentQuestionIndex + 1) / gameConfig.totalQuestions) * 100;
   document.getElementById('progress-bar').style.width = `${progress}%`;
 }
 
 // Fine del gioco e riepilogo
-function endGame() {
+function endGame(selectedQuestions) {
   let categoriesCount = {};
-  
+
   // Conta le domande per categoria
   selectedQuestions.forEach(question => {
     categoriesCount[question.category] = (categoriesCount[question.category] || 0) + 1;
