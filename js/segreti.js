@@ -1,60 +1,82 @@
 // Configurazione del Gioco Segreti Piccanti
 const secretsGameConfig = {
-  category: "Segreti Piccanti", // Categoria specifica
-  totalQuestions: 25 // Numero di domande
+  category: "Piccanti", // Categoria specifica
+  totalQuestions: 25    // Numero totale di domande
 };
 
+// Variabili globali
+let currentQuestionIndex = 0;
+let selectedQuestions = [];
 
 // Avvia il Gioco Segreti Piccanti
 async function startSecretsGame() {
   console.log("Inizio del gioco Segreti Piccanti!");
 
-document.getElementById('game-content').style.display = 'block';
+  // Carica le domande dalla categoria specificata
+  await loadQuestions('domande'); // Modifica in base al file JSON
+  selectedQuestions = (questions[secretsGameConfig.category] || [])
+    .sort(() => Math.random() - 0.5) // Mescola le domande
+    .slice(0, secretsGameConfig.totalQuestions); // Seleziona il numero desiderato di domande
 
-  // Filtra le domande dalle categorie selezionate
-  await loadQuestions('domande'); // Carica tutte le domande
-  const filteredQuestions = selectedCategories.flatMap(category => questions[category] || []);
-  
-  // Prepara il set di domande casuali
-  selectedQuestions = filteredQuestions.sort(() => Math.random() - 0.5).slice(0, gameConfig.randomQuestions);
+  console.log("Domande selezionate:", selectedQuestions);
 
-  // Avvia il gioco
+  // Avvia il gioco con la prima domanda
   currentQuestionIndex = 0;
   updateQuestionCounter();
-  nextQuestion();
+  showQuestion();
 }
 
-// Fine del gioco e riepilogo
-function endGame() {
-  let categoriesCount = {};
-  
-  // Conta le domande per categoria
-  selectedQuestions.forEach(question => {
-    categoriesCount[question.category] = (categoriesCount[question.category] || 0) + 1;
-  });
-
-  let summaryHtml = '<h2>Gioco completato!</h2><p>Riepilogo:</p><ul>';
-  for (const [category, count] of Object.entries(categoriesCount)) {
-    summaryHtml += `<li>${category}: ${count} domande</li>`;
+// Mostra la domanda corrente
+function showQuestion() {
+  if (currentQuestionIndex < selectedQuestions.length) {
+    const question = selectedQuestions[currentQuestionIndex];
+    document.getElementById('question').innerText = question.question;
+  } else {
+    endSecretsGame();
   }
-  summaryHtml += '</ul>';
+}
 
-  summaryHtml += `
-    <button onclick="restartGame()">Ricomincia</button>
-    <a href="index.html"><button>Torna alla Home</button></a>
+// Aggiorna la barra di progresso
+function updateQuestionCounter() {
+  const progress = ((currentQuestionIndex + 1) / secretsGameConfig.totalQuestions) * 100;
+  document.getElementById('progress-bar').style.width = `${progress}%`;
+}
+
+// Passa alla prossima domanda
+function nextQuestion() {
+  currentQuestionIndex++;
+  updateQuestionCounter();
+  showQuestion();
+}
+
+// Termina il gioco e mostra il riepilogo
+function endSecretsGame() {
+  document.getElementById('game-content').style.display = 'none';
+  const endGameDiv = document.getElementById('end-game');
+  endGameDiv.style.display = 'block';
+
+  const finalMessage = `
+    <h2>Gioco completato!</h2>
+    <p>Hai completato tutte le domande!</p>
   `;
-
-  document.getElementById('game-content').innerHTML = summaryHtml;
+  document.getElementById('final-message').innerHTML = finalMessage;
 }
 
 // Riavvia il gioco
 function restartGame() {
-  currentQuestionIndex = 0; // Reset dell'indice
-  selectedQuestions = []; // Reset delle domande selezionate
-  document.getElementById('game-content').style.display = 'block';
+  currentQuestionIndex = 0;
+  selectedQuestions = [];
+  document.getElementById('question').innerText = "";
+  document.getElementById('progress-bar').style.width = "0%";
+  document.getElementById('end-game').style.display = 'none';
+  startSecretsGame();
 }
 
-// Nascondi il contenuto del gioco quando la pagina è caricata
-window.addEventListener('DOMContentLoaded', () => {
-  document.getElementById('game-content').style.display = 'block';
-});
+// Avvia automaticamente il gioco all'apertura della pagina
+window.addEventListener('DOMContentLoaded', startSecretsGame);
+
+// Collega le funzioni al contesto globale
+window.nextQuestion = nextQuestion;
+window.restartGame = restartGame;
+
+console.log("Modulo segreti.js caricato correttamente.");
