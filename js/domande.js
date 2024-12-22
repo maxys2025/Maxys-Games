@@ -55,7 +55,6 @@ function endGame() {
   summaryHtml += '</ul>';
 
   summaryHtml += `
-    <button onclick="restartGame()">Ricomincia</button>
     <a href="index.html"><button>Torna alla Home</button></a>
   `;
 
