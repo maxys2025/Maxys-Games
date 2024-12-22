@@ -4,10 +4,6 @@ const secretsGameConfig = {
   totalQuestions: 25    // Numero totale di domande
 };
 
-// Variabili globali
-let currentQuestionIndex = 0;
-let selectedQuestions = [];
-
 // Avvia il Gioco Segreti Piccanti
 async function startSecretsGame() {
   console.log("Inizio del gioco Segreti Piccanti!");
