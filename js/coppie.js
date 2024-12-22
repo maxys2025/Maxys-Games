@@ -1,7 +1,8 @@
 // Configurazione del Gioco delle Coppie
 const couplesGameConfig = {
-  category: "Conoscenza", // Categoria delle domande
-  totalQuestions: 30      // Numero totale di domande
+  categories: ["Pref", "Esp", "Pic", "Boh", "Cur"], // Sottocategorie
+  questionsPerCategory: 6, // Numero di domande per sottocategoria
+  totalQuestions: 30 // Numero totale di domande
 };
 
 // Variabili globali
@@ -9,6 +10,7 @@ let score = { him: 0, her: 0 }; // Punteggio separato per i due giocatori
 let turn = "him"; // Indica di chi è il turno
 let nameHim = "Lui"; // Nome di Lui (personalizzato)
 let nameHer = "Lei"; // Nome di Lei (personalizzato)
+let selectedQuestions = [];
 
 // Avvia il Gioco delle Coppie
 async function startCouplesGame() {
@@ -24,13 +26,17 @@ async function startCouplesGame() {
   document.getElementById('name-input').style.display = 'none';
   document.getElementById('game-content').style.display = 'block';
 
-  // Carica le domande dalla categoria specificata
+  // Carica le domande dalle categorie specificate
   await loadQuestions('coppie');
-  selectedQuestions = (questions[couplesGameConfig.category] || [])
-    .sort(() => Math.random() - 0.5) // Mescola le domande
-    .slice(0, couplesGameConfig.totalQuestions);
+  selectedQuestions = couplesGameConfig.categories.flatMap(category => {
+    const questionsInCategory = questions[category] || [];
+    return questionsInCategory.sort(() => Math.random() - 0.5).slice(0, couplesGameConfig.questionsPerCategory);
+  });
 
   console.log("Domande selezionate:", selectedQuestions);
+
+  // Mescola le domande selezionate
+  selectedQuestions = selectedQuestions.sort(() => Math.random() - 0.5);
 
   // Mostra la prima domanda
   currentQuestionIndex = 0;
@@ -46,7 +52,11 @@ function showQuestion() {
     const turnLabel = turn === "him" 
       ? `<span class="highlight">${nameHim}</span>` 
       : `<span class="highlight">${nameHer}</span>`;
-    document.getElementById('question').innerHTML = `Domanda per ${turnLabel}: ${question.question}`;
+    document.getElementById('question').innerHTML = `
+      <p>Domanda per ${turnLabel}</p>
+      <p class="subcategory">${question.category}</p>
+      <p>${question.question}</p>
+    `;
   } else {
     endCouplesGame();
   }
@@ -74,11 +84,11 @@ function recordAnswer(isCorrect) {
 // Genera una frase personalizzata basata sul punteggio
 function getPersonalizedMessage(score) {
   if (score <= 5) {
-    return "Ci sono ancora delle cose che devi scoprire!.";
+    return "Ci sono ancora delle cose che devi scoprire!";
   } else if (score <= 12) {
     return "Hai fatto un ottimo lavoro!";
   } else {
-    return "Conosci il tuo partner alla perfezione!.";
+    return "Conosci il tuo partner alla perfezione!";
   }
 }
 
