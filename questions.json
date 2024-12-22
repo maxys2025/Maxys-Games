@@ -22,7 +22,7 @@
       { "question": "Se potessi cenare con una persona famosa, chi sarebbe?", "category": "Curiosità" }
     ]
   },
-  "Coppie": {
+  "coppie": {
     "Pref": [
       { "question": "Qual è il tuo colore preferito?", "category": "Preferenze" },
       { "question": "Qual è il tuo piatto preferito?", "category": "Preferenze" },
