@@ -25,7 +25,7 @@ async function startGameWithCategories() {
 
   // Dividi equamente le domande tra le categorie selezionate
   const questionsPerCategory = Math.floor(gameConfig.totalQuestions / selectedCategories.length);
-  let selectedQuestions = selectedCategories.flatMap(category => {
+  selectedQuestions = selectedCategories.flatMap(category => {
     const questionsInCategory = questions[category] || [];
     return questionsInCategory.sort(() => Math.random() - 0.5).slice(0, questionsPerCategory);
   });
@@ -45,18 +45,18 @@ async function startGameWithCategories() {
   // Avvia il gioco
   currentQuestionIndex = 0;
   updateQuestionCounter();
-  nextQuestion(selectedQuestions);
+  nextQuestion();
 }
 
 // Mostra la prossima domanda
-function nextQuestion(selectedQuestions) {
+function nextQuestion() {
   if (currentQuestionIndex < selectedQuestions.length) {
     const question = selectedQuestions[currentQuestionIndex];
     document.getElementById('question').innerText = question.question;
     currentQuestionIndex++;
     updateQuestionCounter();
   } else {
-    endGame(selectedQuestions);
+    endGame();
   }
 }
 
@@ -67,7 +67,7 @@ function updateQuestionCounter() {
 }
 
 // Fine del gioco e riepilogo
-function endGame(selectedQuestions) {
+function endGame() {
   let categoriesCount = {};
 
   // Conta le domande per categoria
