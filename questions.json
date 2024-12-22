@@ -22,38 +22,41 @@
       { "question": "Se potessi cenare con una persona famosa, chi sarebbe?", "category": "Curiosità" }
     ]
   },
-  "coppie": {
-    "Conoscenza": [
-      { "question": "1", "category": "Conoscenza" },
-      { "question": "2", "category": "Conoscenza" },
-      { "question": "3", "category": "Conoscenza" },
-      { "question": "ahah", "category": "Conoscenza" },
-      { "question": "5", "category": "Conoscenza" },
-      { "question": "6", "category": "Conoscenza" },
-      { "question": "7", "category": "Conoscenza" },
-      { "question": "uhuh", "category": "Conoscenza" },
-      { "question": "9", "category": "Conoscenza" },
-      { "question": "10", "category": "Conoscenza" },
-      { "question": "11", "category": "Conoscenza" },
-      { "question": "12", "category": "Conoscenza" },
-      { "question": "hihi", "category": "Conoscenza" },
-      { "question": "14", "category": "Conoscenza" },
-      { "question": "15", "category": "Conoscenza" },
-      { "question": "16", "category": "Conoscenza" },
-      { "question": "17", "category": "Conoscenza" },
-      { "question": "18", "category": "Conoscenza" },
-      { "question": "19", "category": "Conoscenza" },
-      { "question": "eheh", "category": "Conoscenza" },
-      { "question": "21", "category": "Conoscenza" },
-      { "question": "22", "category": "Conoscenza" },
-      { "question": "23", "category": "Conoscenza" },
-      { "question": "24", "category": "Conoscenza" },
-      { "question": "25", "category": "Conoscenza" },
-      { "question": "ohoh", "category": "Conoscenza" },
-      { "question": "27", "category": "Conoscenza" },
-      { "question": "28", "category": "Conoscenza" },
-      { "question": "29", "category": "Conoscenza" },
-      { "question": "30", "category": "Conoscenza" }
+  "Coppie": {
+    "Pref": [
+      { "question": "Qual è il tuo colore preferito?", "category": "Preferenze" },
+      { "question": "Qual è il tuo piatto preferito?", "category": "Preferenze" },
+      { "question": "Qual è il tuo genere musicale preferito?", "category": "Preferenze" },
+      { "question": "Qual è la tua stagione preferita?", "category": "Preferenze" },
+      { "question": "Qual è il tuo hobby preferito?", "category": "Preferenze" }
+    ],
+    "Esp": [
+      { "question": "Qual è stato il viaggio più bello che hai fatto?", "category": "Esperienze" },
+      { "question": "Hai mai fatto qualcosa di estremo, come paracadutismo?", "category": "Esperienze" },
+      { "question": "Qual è il tuo ricordo d'infanzia più bello?", "category": "Esperienze" },
+      { "question": "Hai mai incontrato qualcuno di famoso?", "category": "Esperienze" },
+      { "question": "Qual è stata la tua vacanza più divertente?", "category": "Esperienze" }
+    ],
+    "Pic": [
+      { "question": "Qual è stato il viaggio più bello che hai fatto?", "category": "Esperienze" },
+      { "question": "Hai mai fatto qualcosa di estremo, come paracadutismo?", "category": "Esperienze" },
+      { "question": "Qual è il tuo ricordo d'infanzia più bello?", "category": "Esperienze" },
+      { "question": "Hai mai incontrato qualcuno di famoso?", "category": "Esperienze" },
+      { "question": "Qual è stata la tua vacanza più divertente?", "category": "Esperienze" }
+    ],
+    "Boh": [
+      { "question": "Qual è stato il viaggio più bello che hai fatto?", "category": "Esperienze" },
+      { "question": "Hai mai fatto qualcosa di estremo, come paracadutismo?", "category": "Esperienze" },
+      { "question": "Qual è il tuo ricordo d'infanzia più bello?", "category": "Esperienze" },
+      { "question": "Hai mai incontrato qualcuno di famoso?", "category": "Esperienze" },
+      { "question": "Qual è stata la tua vacanza più divertente?", "category": "Esperienze" }
+    ],
+    "Cur": [
+      { "question": "Se potessi avere un superpotere, quale sarebbe?", "category": "Curiosità" },
+      { "question": "Qual è l'animale che ti rappresenta di più?", "category": "Curiosità" },
+      { "question": "Se potessi vivere ovunque, dove sarebbe?", "category": "Curiosità" },
+      { "question": "Qual è il tuo sogno più strano?", "category": "Curiosità" },
+      { "question": "Se potessi cenare con una persona famosa, chi sarebbe?", "category": "Curiosità" }
     ]
   },
   "segreti": {
