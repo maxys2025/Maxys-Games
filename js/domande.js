@@ -1,6 +1,8 @@
 // Configurazione specifica per il Gioco delle Domande
 const gameConfig = {
-  randomQuestions: 25 // Numero totale di domande
+  categories: ["Pref", "Esp", "Pic", "Boh", "Cur"], // Sottocategorie
+  questionsPerCategory: 6, // Numero di domande per sottocategoria
+  totalQuestions: 30 // Numero totale di domande
 };
 
 // Avvio del gioco con la selezione delle categorie
