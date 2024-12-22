@@ -33,6 +33,12 @@ async function startGameWithCategories() {
   nextQuestion();
 }
 
+// Aggiorna la barra di progresso
+function updateQuestionCounter() {
+  const progress = ((currentQuestionIndex + 1) / gameConfig.randomQuestions) * 100;
+  document.getElementById('progress-bar').style.width = `${progress}%`;
+}
+
 // Fine del gioco e riepilogo
 function endGame() {
   let categoriesCount = {};
