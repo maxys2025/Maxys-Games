@@ -1,7 +1,7 @@
 // Configurazione del Gioco Segreti Piccanti
 const secretsGameConfig = {
   category: "Piccanti", // Categoria specifica
-  totalQuestions: 25    // Numero totale di domande
+  totalQuestions: 25    // Numero di domande
 };
 
 // Avvia il Gioco Segreti Piccanti
@@ -9,11 +9,21 @@ async function startSecretsGame() {
   console.log("Inizio del gioco Segreti Piccanti!");
 
   // Carica le domande dalla categoria specificata
-  await loadQuestions('domande'); // Modifica in base al file JSON
-  selectedQuestions = (questions[secretsGameConfig.category] || [])
-    .sort(() => Math.random() - 0.5) // Mescola le domande
-    .slice(0, secretsGameConfig.totalQuestions); // Seleziona il numero desiderato di domande
+  await loadQuestions('segreti'); // Carica dalla chiave 'segreti'
+  console.log("Domande caricate:", questions);
 
+  // Filtra le domande per la categoria "Piccanti"
+  selectedQuestions = (questions[secretsGameConfig.category] || []);
+  console.log("Domande filtrate per categoria:", selectedQuestions);
+
+  if (selectedQuestions.length === 0) {
+    console.error("Nessuna domanda trovata per la categoria 'Piccanti'.");
+    document.getElementById('question').innerText = "Errore: Nessuna domanda trovata.";
+    return;
+  }
+
+  // Mescola e seleziona le domande
+  selectedQuestions = selectedQuestions.sort(() => Math.random() - 0.5).slice(0, secretsGameConfig.totalQuestions);
   console.log("Domande selezionate:", selectedQuestions);
 
   // Avvia il gioco con la prima domanda
