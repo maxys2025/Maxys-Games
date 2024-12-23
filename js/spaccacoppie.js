@@ -1,7 +1,7 @@
 // Configurazione del Gioco Segreti Piccanti
 const secretsGameConfig = {
   category: "Provocazioni", // Categoria specifica
-  totalQuestions: 25    // Numero di domande
+  totalQuestions: 20    // Numero di domande
 };
 
 // Avvia il Gioco Segreti Piccanti
