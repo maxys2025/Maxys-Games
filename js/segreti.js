@@ -4,8 +4,19 @@ const secretsGameConfig = {
   totalQuestions: 25    // Numero di domande
 };
 
-// Avvia il Gioco Segreti Piccanti
+// Avvia il Gioco Segreti Piccanti con avviso
 async function startSecretsGame() {
+  // Mostra l'avviso per il pubblico adulto
+  const userConfirmed = confirm(
+    "Attenzione: Questo gioco è per un pubblico adulto. Alcune domande sono molto dirette e potrebbero risultare provocanti. Vuoi continuare?"
+  );
+  
+  if (!userConfirmed) {
+    // Se l'utente non conferma, ritorna alla pagina principale
+    window.location.href = "index.html";
+    return;
+  }
+
   console.log("Inizio del gioco Segreti Piccanti!");
 
   // Carica le domande dalla categoria specificata
