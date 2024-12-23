@@ -345,8 +345,26 @@
   },
   "spaccacoppie": {
     "Provocazioni": [
-      { "question": "Chi è più testardo tra voi due?", "category": "Provocazioni" },
-      { "question": "Cosa cambieresti del tuo partner?", "category": "Provocazioni" }
+      { "question": "Mi hai mai tradito?", "category": "Provocazioni" },
+      { "question": "Il tuo/La tua ex scopava meglio di me?", "category": "Provocazioni" },
+      { "question": "Se il tuo/a ex tornasse, pensi che potresti mai tornare con lui/lei?", "category": "Provocazioni" },
+      { "question": "Pensi che io sia cambiato/a in peggio da quando stiamo insieme?", "category": "Provocazioni" },
+      { "question": "Chi trovi più attraente tra i miei amici/amiche?", "category": "Provocazioni" },
+      { "question": "Hai mai provato vergogna per qualcosa che ho fatto o detto davanti agli altri?", "category": "Provocazioni" },
+      { "question": "Hai mai pensato che qualcuno che conosci fosse meglio a letto di me?", "category": "Provocazioni" },
+      { "question": "Quando sei con me, ti capita mai di fingere di essere felice?", "category": "Provocazioni" },
+      { "question": "Ti sei mai pentito/a di avermi detto "ti amo"?", "category": "Provocazioni" },
+      { "question": "C’è una cosa che non hai mai avuto il coraggio di dirmi perché sai che mi ferirebbe troppo?", "category": "Provocazioni" },
+      { "question": "Se il/la tuo/a ex ti chiedesse di incontrarlo/a per “un’ultima volta”, andresti?", "category": "Provocazioni" },
+      { "question": "C’è qualcosa che trovi noioso o insopportabile di me?", "category": "Provocazioni" },
+      { "question": "Se qualcuno più attraente di me ci provasse con te come reagiresti?", "category": "Provocazioni" },
+      { "question": "Hai mai inventato una scusa per non fare sesso?", "category": "Provocazioni" },
+      { "question": "Sei mai voluto uscire senza di me per provare a rimorchiare?", "category": "Provocazioni" },
+      { "question": "Hai mai desiderato che fossi più simile al/la tuo/a ex?", "category": "Provocazioni" },
+      { "question": "C’è qualcuno nella mia famiglia che non sopporti ma non hai mai avuto il coraggio di dirmelo?", "category": "Provocazioni" },
+      { "question": "Se scoprissi che ho una visione del futuro diversa dalla tua resteresti comunque con me?", "category": "Provocazioni" },
+      { "question": "Ti mai sentito con qualcuno/a senza dirmelo?", "category": "Provocazioni" },
+      { "question": "C’è qualcosa che hai sempre voluto fare a letto, ma che non osi chiedermi?", "category": "Provocazioni" }
     ]
   }
 }
