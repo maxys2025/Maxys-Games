@@ -74,7 +74,7 @@ function endSecretsGame() {
 
   const finalMessage = `
     <h2>Gioco completato!</h2>
-    <p>Hai completato tutte le domande!</p>
+    <p>Rinizia il gioco per scoprire altre nuove domande! Rispondi a tutte!</p>
   `;
   document.getElementById('final-message').innerHTML = finalMessage;
 }
